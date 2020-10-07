@@ -11,7 +11,7 @@ import { MyProfileService } from '../common/my-profile/my-profile.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-
+  seeListClicked: boolean;
   myProfileId: number;
   myProfile: MyProfile;
   createLoginClicked: boolean;
@@ -22,11 +22,12 @@ export class MyProfileComponent implements OnInit {
   constructor(private toastr: ToastrService, private router: Router, private myProfileService: MyProfileService) { }
 
   ngOnInit(): void {
-    this.createLoginClicked = true;
+    this.createLoginClicked = false;
+    this.seeListClicked= false;
     this.placeholder = "Enter ProfileId"
   }
 
-  async onEnterClicked(id: number) {
+   onEnterClicked(id: number) {
     this.myProfileService.getMyProfileById(id).subscribe(data => {
       console.log(data);
       this.myProfile = data;
@@ -45,11 +46,19 @@ export class MyProfileComponent implements OnInit {
   }
 
   onListClicked() {
-    this.createLoginClicked = !this.createLoginClicked;
-    this.router.navigate(['/myProfile/myProfileList']);
+    this.seeListClicked=!this.seeListClicked;
+    if(this.createLoginClicked){
+      this.createLoginClicked=!this.createLoginClicked;
+    }
+    
   }
   onCreateLoginClicked() {
     this.createLoginClicked = !this.createLoginClicked;
+    if(this.seeListClicked){
+      this.seeListClicked=!this.seeListClicked;
+  }}
+  onSubmit(){
+    this.createLoginClicked= false;
   }
  
 

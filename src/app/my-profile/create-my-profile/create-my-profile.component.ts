@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MyProfileService } from '../../common/my-profile/my-profile.service'
 
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./create-my-profile.component.css']
 })
 export class CreateMyProfileComponent implements OnInit {
- 
+
+ @Output() isSubmitted  =new EventEmitter();
   myProfileForm: FormGroup;
   id :number;
   
@@ -39,6 +40,7 @@ export class CreateMyProfileComponent implements OnInit {
     
 
     }, error =>console.log(error));
+    this.isSubmitted.emit();
       
     this.router.navigate(['/myProfile']);
   

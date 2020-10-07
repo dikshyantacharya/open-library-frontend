@@ -15,15 +15,15 @@
       <div><button class="btn btn-primary" (click)="onListClicked()">See All List</button></div>
     </div>
   </div>
-  <div class="column-md-12 ml-5 maintainance login" [hidden]="createLoginClicked">
+  <div class="column-md-12 ml-5 maintainance " [ngClass]="{ 'login' : (createLoginClicked || seeListClicked)}" >
     <div class="container ">
       <br>
       <h2 style="text-align: center;"></h2>
       <hr>
       <div class="card">
         <div class="card-body">
-          <router-outlet ></router-outlet>
-
+        <div *ngIf ="createLoginClicked"> <app-create-my-profile (isSubmitted)="onSubmit()"></app-create-my-profile></div> 
+         <div *ngIf= "seeListClicked"><app-my-profile-list></app-my-profile-list></div>
         </div>
       </div>
     </div>
