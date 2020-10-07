@@ -1,0 +1,28 @@
+nav
+{
+   position: fixed;
+  width: 100%;
+  height :auto;
+  
+}
+.under-nav {
+  position: fixed;
+  top: 80px; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+ 
+}
+
+img{  
+  
+  
+  height: 100%; 
+  width: 100%;
+
+ 
+  
+ }
+ 
+

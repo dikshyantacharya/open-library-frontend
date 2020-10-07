@@ -1,0 +1,26 @@
+<div [hidden]="!isOnUpdate">
+    <form  (ngSubmit)="onSubmit()" [formGroup]="updateMyBooksForm">
+        <div class="form-group">
+            <label for="name">Book Name</label>
+            <input type="text" class="form-control" id="name"  formControlName= "bookName">
+              </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author"  formControlName= "author">
+             </div>
+        <div class="form-group">
+          <label for="bookType">Book Type</label>
+          <input type="text" class="form-control" id="bookType" formControlName= "bookType">
+            </div>
+        <div class="form-group">
+          <label for="imageUrl">Image Link</label>
+          <input type="text" class="form-control" id="imageUrl" formControlName= "imageUrl">
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+      <div [hidden]="isOnUpdate">
+        <h4>Book updated successfully!</h4>
+       
+      </div>

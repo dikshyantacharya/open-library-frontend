@@ -1,0 +1,31 @@
+<div class="row ml-5 mt-5">
+  <div class="column-sm-4">
+    <div><button class="btn btn-primary" routerLink="createMyProfile"
+        (click)="onCreateLoginClicked()" >CreateProfile</button></div>
+
+    <hr>
+    <div>
+      <div>Already have an account?</div>
+      <div><label for="profileId">Profile Id Number</label>
+        <input type="number" id="profileId" class="form-control" placeholder={{placeholder}} [(ngModel)]="myProfileId">
+        <div> <button type="submit" class="btn btn-primary mb-2 mt-2"
+            (click)="onEnterClicked(myProfileId)">Enter</button></div>
+      </div>
+
+      <div><button class="btn btn-primary" (click)="onListClicked()">See All List</button></div>
+    </div>
+  </div>
+  <div class="column-md-12 ml-5 maintainance login" [hidden]="createLoginClicked">
+    <div class="container ">
+      <br>
+      <h2 style="text-align: center;"></h2>
+      <hr>
+      <div class="card">
+        <div class="card-body">
+          <router-outlet ></router-outlet>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

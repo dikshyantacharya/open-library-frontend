@@ -1,0 +1,31 @@
+<div >
+<button  class="btn btn-primary mb-2 ml-2 mt-1"  (click)="onAddToMyBooks()" ><h4>Wanna add book?</h4></button>
+<button class="btn btn-success ml-5 mr-5"  (click)="onNewBooks()" ><h4>Wanna see new Books?</h4></button>
+<button class="btn btn-primary ml-5 mr-5"  (click)="myAvailableBooks()" ><h4>MyShared Books</h4></button>
+
+<button class ="btn btn-primary mb-2 ml-5" (click)="onNotificationClick()">Notifications</button>
+</div>
+
+
+
+<div >
+  <div><h3>My Books List</h3></div>
+  <div class="row">
+    <div class="column-sm-4" *ngFor ="let myBook of myBooks | async;">
+        <div class="mr-4">
+            <div class="card" style="width: 18rem;">
+              <a (click)="onBookLinkClicked(myBook.id)"> <img class="img-thumbnail" src="{{myBook.imageUrl}}" alt="Card image cap" ></a> 
+                <div class="card-body">
+                  <h5 class="card-title">{{myBook.bookName}}</h5>
+                 
+               
+                 
+                 </div> 
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+

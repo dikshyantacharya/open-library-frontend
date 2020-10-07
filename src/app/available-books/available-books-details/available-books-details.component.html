@@ -1,0 +1,33 @@
+<div [hidden]="requested">
+    <div>
+        <div class="row">
+           <div class="col-sm-5">
+             <div><label ><b>Book Id:</b> {{availableBooks.id}}</label></div>
+             <div><label ><b>Book Name:</b> {{availableBooks.bookName}}</label></div>
+             <div> <label ><b>Book Author:</b> {{availableBooks.author}}</label></div>
+             <div><label ><b>Book Type:</b> {{availableBooks.bookType}}</label></div>
+             
+             <div><label><b>Actions:</b>
+             <button class="btn btn-success mr-2" (click)="onRequestedBook()" *ngIf ="!alreadyRequested" >Request Book</button>
+             <button class="btn btn-success disabled mr-2"  *ngIf ="alreadyRequested" >Requested</button>
+             </label>
+            </div>
+        </div>
+      
+        <div class="col-sm-7">
+              <label ><b><img src="{{availableBooks.imageUrl}}"></b></label>
+        </div>
+      
+    </div>
+  
+
+  
+  <div class="button btn btn-success" (click) ="availableBooksList()">Available Books List</div>
+  
+</div>
+
+<div [hidden]="!requested">
+      <h4>Book requested successfully!</h4>
+</div>
+  
+    

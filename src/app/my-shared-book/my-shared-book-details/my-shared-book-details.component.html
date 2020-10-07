@@ -1,0 +1,33 @@
+<div [hidden]="delete" [hidden]="addedToAvailabeBook" [hidden]="isOnUpdate">
+    <div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div><label><b>Book Id:</b> {{mySharedBook.id}}</label></div>
+                <div><label><b>Book Name:</b> {{mySharedBook.bookName}}</label></div>
+                <div> <label><b>Book Author:</b> {{mySharedBook.author}}</label></div>
+                <div><label><b>Book Type:</b> {{mySharedBook.bookType}}</label></div>
+
+                <div><label><b>Actions:</b>
+
+                        <button class="btn btn-danger mr-2" (click)="onDelete()">Remove</button>
+
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+                <label><b><img src="{{mySharedBook.imageUrl}}"></b></label>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="button btn btn-success" (click)="myBooks()">My Books</div>
+
+</div>
+
+<div [hidden]="!delete">
+    <h4>You deleted successfully!</h4>
+
+</div>

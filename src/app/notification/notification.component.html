@@ -1,0 +1,25 @@
+
+<b><h3>Notifications </h3></b>
+<div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>Id :</th>
+          <th>Notification :</th>
+          <th>Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let notification of notifications | async">
+            <td>{{notification.id}}</td>
+          <td>{{notification.notification}}</td>
+         
+          
+          <td><button (click)="deleteMyNotification(notification.id)" class="btn btn-danger" >Delete</button>
+             
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

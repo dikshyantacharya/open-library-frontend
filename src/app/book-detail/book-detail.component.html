@@ -1,0 +1,41 @@
+<div [hidden]="delete" [hidden]="addedToAvailabeBook" [hidden] ="isOnUpdate">
+  <div>
+<div class="row">
+    <div class="col-sm-5">
+        <div><label ><b>Book Id:</b> {{myBooks.id}}</label></div>
+        <div><label ><b>Book Name:</b> {{myBooks.bookName}}</label></div>
+        <div> <label ><b>Book Author:</b> {{myBooks.author}}</label></div>
+        <div><label ><b>Book Type:</b> {{myBooks.bookType}}</label></div>
+        
+        <div><label><b>Actions:</b>
+            <button class="btn btn-success mr-2" routerLink="updateMyBooks" (click)="onUpdate()">Update</button>
+            <button class="btn btn-danger mr-2" (click)="onDelete()">Delete</button>
+        <button class="btn btn-primary" (click)="onAddToAvailableBooks()">Share Book</button>
+        </label></div>
+    </div>
+    
+        <div class="col-sm-7">
+            <label ><b><img src="{{myBooks.imageUrl}}"></b></label>
+        </div>
+    
+</div>
+
+</div>
+
+<div class="button btn btn-success" (click) ="myBooksList()">My Books List</div>
+
+</div>
+
+<div [hidden]="!delete">
+    <h4>You deleted successfully!</h4>
+   
+  </div>
+  <div [hidden]="!addedToAvailabeBook">
+    <h4>Book added to AvailableBook successfully!</h4>
+   
+  </div>
+
+  <div [hidden]="!isOnUpdate">
+    <router-outlet></router-outlet>
+  </div>
+  
